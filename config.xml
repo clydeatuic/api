@@ -6,4 +6,8 @@
     <name>API Demo 1</name>
     <description>API Demo 1</description>
     <icon src="img/uic.jpg" />
+
+	<allow-navigation href="*" />
+	<allow-intent href="*" />
+	<access origin="*" />    
 </widget>
