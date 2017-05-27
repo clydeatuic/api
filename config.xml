@@ -7,7 +7,7 @@
     <description>API Demo 1</description>
     <icon src="img/uic.jpg" />
 
-	<allow-navigation href="*" />
-	<allow-intent href="*" />
-	<access origin="*" />    
+	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
+	<allow-navigation href="http://*/*" />
+	<allow-intent href="https://*/*" />
 </widget>
