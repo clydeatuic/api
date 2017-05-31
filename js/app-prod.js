@@ -1,24 +1,15 @@
-"use strict";
+'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var root = 'https://jsonplaceholder.typicode.com';
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var AppDemo3 = function () {
-	function AppDemo3() {
-		_classCallCheck(this, AppDemo3);
-	}
-
-	_createClass(AppDemo3, [{
-		key: "page1",
-		value: function page1() {
-			var html = "\n\t\t\t  <div class=\"row\">\n\t\t\t    <div class=\"col s12\">\n\t\t\t      <ul class=\"tabs\">\n\t\t\t        <li class=\"tab col s3\"><a href=\"#test1\"> <i class=\"material-icons\">add</i>Test 1</a></li>\n\t\t\t        <li class=\"tab col s3\"><a class=\"active\" href=\"#test2\">Test 2</a></li>\n\t\t\t        <li class=\"tab col s3 disabled\"><a href=\"#test3\">Disabled Tab</a></li>\n\t\t\t        <li class=\"tab col s3\"><a href=\"#test4\">Test 4</a></li>\n\t\t\t      </ul>\n\t\t\t    </div>\n\t\t\t    <div id=\"test1\" class=\"col s12\">\n\t\t\t\t      <div class=\"row\">\n\t\t\t\t        <div class=\"col s12 m7\">\n\t\t\t\t          <div class=\"card\">\n\t\t\t\t            <div class=\"card-image\">\n\t\t\t\t              <img src=\"img/sample-1.jpg\">\n\t\t\t\t              <span class=\"card-title\">Card Title</span>\n\t\t\t\t            </div>\n\t\t\t\t            <div class=\"card-content\">\n\t\t\t\t              <p>I am a very simple card. I am good at containing small bits of information.\n\t\t\t\t              I am convenient because I require little markup to use effectively.</p>\n\t\t\t\t            </div>\n\t\t\t\t            <div class=\"card-action\">\n\t\t\t\t              <a href=\"#\">This is a link</a>\n\t\t\t\t            </div>\n\t\t\t\t          </div>\n\t\t\t\t        </div>\n\t\t\t\t      </div>\n\t\t\t\t      <div class=\"row\">\n\t\t\t\t        <div class=\"col s12 m7\">\n\t\t\t\t          <div class=\"card\">\n\t\t\t\t            <div class=\"card-image\">\n\t\t\t\t              <img src=\"img/sample-1.jpg\">\n\t\t\t\t              <span class=\"card-title\">Card Title</span>\n\t\t\t\t            </div>\n\t\t\t\t            <div class=\"card-content\">\n\t\t\t\t              <p>I am a very simple card. I am good at containing small bits of information.\n\t\t\t\t              I am convenient because I require little markup to use effectively.</p>\n\t\t\t\t            </div>\n\t\t\t\t            <div class=\"card-action\">\n\t\t\t\t              <a href=\"#\">This is a link</a>\n\t\t\t\t            </div>\n\t\t\t\t          </div>\n\t\t\t\t        </div>\n\t\t\t\t      </div>\n\t\t\t    </div>\n\t\t\t    <div id=\"test2\" class=\"col s12\">Test 2</div>\n\t\t\t    <div id=\"test3\" class=\"col s12\">Test 3</div>\n\t\t\t    <div id=\"test4\" class=\"col s12\">Test 4</div>\n\t\t\t  </div>      \n\t\t";
-			document.querySelector("#appdemo3").innerHTML = html;
-		}
-	}]);
-
-	return AppDemo3;
-}();
-
-var app = new AppDemo3();
-app.page1();
+$.ajax({
+  url: root + '/posts/1',
+  method: 'GET'
+}).then(function (data) {
+  console.log(data);
+  var html = '';
+  html += '\n  <nav class="nav-extended">\n    <div class="nav-wrapper">\n      <a href="#" class="brand-logo">Logo</a>\n      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>\n      <ul id="nav-mobile" class="right hide-on-med-and-down">\n        <li><a href="sass.html">Sass</a></li>\n        <li><a href="badges.html">Components</a></li>\n        <li><a href="collapsible.html">JavaScript</a></li>\n      </ul>\n      <ul class="side-nav" id="mobile-demo">\n        <li><a href="sass.html">Sass</a></li>\n        <li><a href="badges.html">Components</a></li>\n        <li><a href="collapsible.html">JavaScript</a></li>\n      </ul>\n    </div>\n    <div class="nav-content">\n      <ul class="tabs tabs-transparent">\n        <li class="tab"><a href="#test1">Test 1</a></li>\n        <li class="tab"><a class="active" href="#test2">Test 2</a></li>\n        <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>\n        <li class="tab"><a href="#test4">Test 4</a></li>\n      </ul>\n    </div>\n  </nav>\n  <div id="test1" class="col s12">' + data.title + '</div>\n  <div id="test2" class="col s12">Test 2</div>\n  <div id="test3" class="col s12">Test 3</div>\n  <div id="test4" class="col s12">Test 4</div>\n  ';
+  $('#app').html(html);
+  $(".button-collapse").sideNav();
+  $('ul.tabs').tabs();
+});
