@@ -5,7 +5,7 @@
         version   = "1.0.0">
     <name>API Demo 1</name>
     <description>API Demo 1</description>
-    <icon src="img/uic.jpg" />
+    <icon src="img/chester.png" />
 
 	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	<allow-navigation href="http://*/*" />
